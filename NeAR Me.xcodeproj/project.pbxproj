@@ -16,6 +16,8 @@
 		C6DD47541E7865EE004190AF /* CategoryARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DD47531E7865EE004190AF /* CategoryARViewController.swift */; };
 		C6DD47571E786760004190AF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DD47561E786760004190AF /* Category.swift */; };
 		C6DD47591E787552004190AF /* CategoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DD47581E787552004190AF /* CategoryRequest.swift */; };
+		C6DD475F1E7894E7004190AF /* CategoryAnnotaionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DD475E1E7894E7004190AF /* CategoryAnnotaionView.swift */; };
+		C6DD47611E7896C3004190AF /* CategoryAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DD47601E7896C3004190AF /* CategoryAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		C6DD47531E7865EE004190AF /* CategoryARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryARViewController.swift; sourceTree = "<group>"; };
 		C6DD47561E786760004190AF /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C6DD47581E787552004190AF /* CategoryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRequest.swift; sourceTree = "<group>"; };
+		C6DD475E1E7894E7004190AF /* CategoryAnnotaionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryAnnotaionView.swift; sourceTree = "<group>"; };
+		C6DD47601E7896C3004190AF /* CategoryAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryAnnotation.swift; sourceTree = "<group>"; };
 		F93C410C1A498098A28377F1 /* Pods_NeAR_Me.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeAR_Me.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -46,6 +50,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6D885971E79EDC500B74D30 /* Custom Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				C6DD475E1E7894E7004190AF /* CategoryAnnotaionView.swift */,
+				C6DD47601E7896C3004190AF /* CategoryAnnotation.swift */,
+			);
+			name = "Custom Annotation";
+			sourceTree = "<group>";
+		};
 		C6DD47331E78643B004190AF = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +82,7 @@
 			children = (
 				C6DD47561E786760004190AF /* Category.swift */,
 				C6DD47581E787552004190AF /* CategoryRequest.swift */,
+				C6D885971E79EDC500B74D30 /* Custom Annotation */,
 				C6DD47551E7865FB004190AF /* ViewController */,
 				C6DD473F1E78643B004190AF /* AppDelegate.swift */,
 				C6DD47431E78643B004190AF /* Main.storyboard */,
@@ -229,10 +243,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6DD475F1E7894E7004190AF /* CategoryAnnotaionView.swift in Sources */,
 				C6DD47541E7865EE004190AF /* CategoryARViewController.swift in Sources */,
 				C6DD47401E78643B004190AF /* AppDelegate.swift in Sources */,
 				C6DD47591E787552004190AF /* CategoryRequest.swift in Sources */,
 				C6DD47521E7865C0004190AF /* CategoryTableViewController.swift in Sources */,
+				C6DD47611E7896C3004190AF /* CategoryAnnotation.swift in Sources */,
 				C6DD47571E786760004190AF /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,9 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="OUq-jx-gb8">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="faw-r5-GCP">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="faw-r5-GCP" id="tH6-e3-Ubo">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -35,7 +40,13 @@
                             <outlet property="delegate" destination="I4n-EU-foA" id="h2A-JH-RON"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xc2-WI-Shc"/>
+                    <navigationItem key="navigationItem" id="xc2-WI-Shc">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="categorySearchBar" destination="OUq-jx-gb8" id="w8v-br-9u0"/>
+                        <segue destination="EAA-Ie-IEd" kind="show" identifier="ShowSearch" id="Xkh-cP-nMz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cXb-tU-PuL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,4 +89,7 @@
             <point key="canvasLocation" x="-28" y="128.18590704647679"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Xkh-cP-nMz"/>
+    </inferredMetricsTieBreakers>
 </document>

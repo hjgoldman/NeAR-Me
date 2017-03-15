@@ -10,12 +10,13 @@ import UIKit
 import MapKit
 import HDAugmentedReality
 
-class CategoryARViewController: ARViewController, ARDataSource, CLLocationManagerDelegate {
+class CategoryARViewController: ARViewController, ARDataSource, CLLocationManagerDelegate, SearchCategoryDelegate{
     
     var category = Category()
     var locationManager = CLLocationManager()
     var categoryRequestARAnnotations = [ARAnnotation]()
     var categoryRequests = [CategoryRequest]()
+    var searchText :String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,17 +32,24 @@ class CategoryARViewController: ARViewController, ARDataSource, CLLocationManage
         self.headingSmoothingFactor = 0.05
         self.maxVisibleAnnotations = 30
         
+    
         self.title = self.category.title
         
         self.getSelectedCategoryLocations()
     }
     
+    func searchCategoryText(searchText :String) {
+        self.category.title = searchText
+    }
+
+    
     func getSelectedCategoryLocations() {
         
         let categoryRequest = MKLocalSearchRequest()
+        
         categoryRequest.naturalLanguageQuery = self.category.title
         
-        let region = MKCoordinateRegionMakeWithDistance((self.locationManager.location?.coordinate)!, 100, 100)
+        let region = MKCoordinateRegionMakeWithDistance((self.locationManager.location?.coordinate)!, 200, 200)
 
         categoryRequest.region = region
         
@@ -55,32 +63,31 @@ class CategoryARViewController: ARViewController, ARDataSource, CLLocationManage
                 categoryRequest.coordinate = requestItem.placemark.coordinate
                 
                 self.categoryRequests.append(categoryRequest)
+                
             }
             
             for category in self.categoryRequests {
                 
-                let arAnnotation = ARAnnotation()
-                arAnnotation.title = category.name
+                let annotation = CategoryAnnotation(categoryRequest: category)
                 
-                arAnnotation.location = CLLocation(latitude: category.coordinate.latitude, longitude: category.coordinate.longitude)
-                                
-                self.categoryRequestARAnnotations.append(arAnnotation)
+                self.categoryRequestARAnnotations.append(annotation)
                 self.setAnnotations(self.categoryRequestARAnnotations)
+//                let arAnnotation = ARAnnotation()
+//                arAnnotation.title = category.name
+//                arAnnotation.location = CLLocation(latitude: category.coordinate.latitude, longitude: category.coordinate.longitude)
+//                                
+//                self.categoryRequestARAnnotations.append(arAnnotation)
+//                self.setAnnotations(self.categoryRequestARAnnotations)
             }
         }
     }
     
     func ar(_ arViewController: ARViewController, viewForAnnotation: ARAnnotation) -> ARAnnotationView {
         
-        let annotationView = ARAnnotationView()
-        annotationView.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
-        annotationView.backgroundColor = UIColor.blue
+        let annotationView = CategoryAnnotationView(annotation: viewForAnnotation)
         
         return annotationView
     }
     
-    
-    
-    
-    
 }
+

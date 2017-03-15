@@ -8,13 +8,20 @@
 
 import UIKit
 
-class CategoryTableViewController: UITableViewController {
+protocol SearchCategoryDelegate {
+    func searchCategoryText(searchText :String)
+}
+
+class CategoryTableViewController: UITableViewController, UITextFieldDelegate, UISearchBarDelegate {
     
+    
+    @IBOutlet weak var categorySearchBar: UISearchBar!
     var categories = [Category]()
+    var delegate :SearchCategoryDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         let category1 = Category()
         category1.title = "Banks"
         let category2 = Category()
@@ -37,7 +44,23 @@ class CategoryTableViewController: UITableViewController {
         self.categories.append(category5)
         self.categories.append(category6)
         self.categories.append(category7)
+        
+        self.title = "NeAR Me"
+        
+        self.categorySearchBar.delegate = self
         }
+    
+    func searchBarSearchButtonClicked( _ searchBar: UISearchBar) {
+        
+        var searchText = String()
+        searchText = self.categorySearchBar.text!
+        
+//        self.delegate?.searchCategoryText(searchText: searchText)
+//
+//        self.performSegue(withIdentifier: "ShowSearch", sender: self.delegate)
+
+        print(searchText)
+    }
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
