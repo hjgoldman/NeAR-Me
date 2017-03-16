@@ -23,6 +23,7 @@
 /* Begin PBXFileReference section */
 		3EA1D773151DE2E0E34C241C /* Pods-NeAR Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeAR Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NeAR Me/Pods-NeAR Me.debug.xcconfig"; sourceTree = "<group>"; };
 		5F2609268C23FD709178C03E /* Pods-NeAR Me.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeAR Me.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeAR Me/Pods-NeAR Me.release.xcconfig"; sourceTree = "<group>"; };
+		C6D885981E79FE6D00B74D30 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		C6DD473C1E78643B004190AF /* NeAR Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NeAR Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DD473F1E78643B004190AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6DD47441E78643B004190AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 				C6DD47461E78643B004190AF /* Assets.xcassets */,
 				C6DD47481E78643B004190AF /* LaunchScreen.storyboard */,
 				C6DD474B1E78643B004190AF /* Info.plist */,
+				C6D885981E79FE6D00B74D30 /* MyPlayground.playground */,
 			);
 			path = "NeAR Me";
 			sourceTree = "<group>";

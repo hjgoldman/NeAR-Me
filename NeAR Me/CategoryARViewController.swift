@@ -10,12 +10,17 @@ import UIKit
 import MapKit
 import HDAugmentedReality
 
+protocol UserLocationDelegate {
+    func userLocation(lat :Double, lng :Double) 
+}
+
 class CategoryARViewController: ARViewController, ARDataSource, CLLocationManagerDelegate, SearchCategoryDelegate{
     
     var category = Category()
     var locationManager = CLLocationManager()
     var categoryRequestARAnnotations = [ARAnnotation]()
     var categoryRequests = [CategoryRequest]()
+    var delegate :UserLocationDelegate!
     var searchText :String!
 
     override func viewDidLoad() {
@@ -31,15 +36,28 @@ class CategoryARViewController: ARViewController, ARDataSource, CLLocationManage
         self.dataSource = self
         self.headingSmoothingFactor = 0.05
         self.maxVisibleAnnotations = 30
-        
     
         self.title = self.category.title
         
+        self.getUserCoordinates()
+        
+        
+//search stuff that not working
         self.getSelectedCategoryLocations()
     }
-    
+
+//search stuff that not working
     func searchCategoryText(searchText :String) {
         self.category.title = searchText
+    }
+    
+    
+//Using delegate to get userlocation and then send it over to the custom annotationView
+    func getUserCoordinates() {
+        
+//        let userLat = self.locationManager.location?.coordinate.latitude
+//        let userLng = self.locationManager.location?.coordinate.longitude
+//        self.delegate.userLocation(lat: userLat!, lng: userLng!)
     }
 
     
@@ -61,6 +79,11 @@ class CategoryARViewController: ARViewController, ARDataSource, CLLocationManage
                 let categoryRequest = CategoryRequest()
                 categoryRequest.name = requestItem.name
                 categoryRequest.coordinate = requestItem.placemark.coordinate
+                categoryRequest.address = requestItem.placemark.addressDictionary?["FormattedAddressLines"] as! [String]
+                categoryRequest.street = requestItem.placemark.addressDictionary?["Street"] as! String!
+                categoryRequest.city = requestItem.placemark.addressDictionary?["City"] as! String
+                categoryRequest.state = requestItem.placemark.addressDictionary?["State"] as! String
+                categoryRequest.zip = requestItem.placemark.addressDictionary?["ZIP"] as! String
                 
                 self.categoryRequests.append(categoryRequest)
                 
