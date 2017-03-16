@@ -33,10 +33,10 @@ class CategoryTableViewController: UITableViewController, UITextFieldDelegate, U
         let category5 = Category()
         category5.title = "Museums"
         let category6 = Category()
-        category6.title = "Fast Food"
+        category6.title = "Parks"
         let category7 = Category()
-        category7.title = "Attractions"
-        
+        category7.title = "Taco"
+
         self.categories.append(category1)
         self.categories.append(category2)
         self.categories.append(category3)
@@ -44,7 +44,7 @@ class CategoryTableViewController: UITableViewController, UITextFieldDelegate, U
         self.categories.append(category5)
         self.categories.append(category6)
         self.categories.append(category7)
-        
+
         self.title = "NeAR Me"
         
         self.categorySearchBar.delegate = self
@@ -55,9 +55,9 @@ class CategoryTableViewController: UITableViewController, UITextFieldDelegate, U
         var searchText = String()
         searchText = self.categorySearchBar.text!
         
-//        self.delegate?.searchCategoryText(searchText: searchText)
-//
-//        self.performSegue(withIdentifier: "ShowSearch", sender: self.delegate)
+        self.delegate?.searchCategoryText(searchText: searchText)
+
+        self.performSegue(withIdentifier: "ShowSearch", sender: self.delegate)
 
         print(searchText)
     }

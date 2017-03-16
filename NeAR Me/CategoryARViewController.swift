@@ -44,9 +44,10 @@ class CategoryARViewController: ARViewController, ARDataSource, CLLocationManage
         
 //search stuff that not working
         self.getSelectedCategoryLocations()
+        
     }
 
-//search stuff that not working
+//search stuff that is not working
     func searchCategoryText(searchText :String) {
         self.category.title = searchText
     }
