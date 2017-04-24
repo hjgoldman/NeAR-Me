@@ -7,17 +7,20 @@
 //
 
 import UIKit
+import MapKit
 
 protocol SearchCategoryDelegate {
     func searchCategoryText(searchText :String)
 }
 
-class CategoryTableViewController: UITableViewController, UITextFieldDelegate, UISearchBarDelegate {
+class CategoryTableViewController: UITableViewController, UITextFieldDelegate, UISearchBarDelegate, CLLocationManagerDelegate {
     
     
     @IBOutlet weak var categorySearchBar: UISearchBar!
     var categories = [Category]()
     var delegate :SearchCategoryDelegate!
+    var locationManager = CLLocationManager()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +51,14 @@ class CategoryTableViewController: UITableViewController, UITextFieldDelegate, U
         self.title = "NeAR Me"
         
         self.categorySearchBar.delegate = self
+        
+        //location manager stuff 
+        self.locationManager = CLLocationManager()
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.distanceFilter = kCLDistanceFilterNone
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
         }
     
     func searchBarSearchButtonClicked( _ searchBar: UISearchBar) {
